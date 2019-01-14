@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/boder"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_return"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/set_return"
+            android:text="" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/login_avatar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/login"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="48dp"/>
+
+    <EditText
+        android:id="@+id/login_id"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="28dp"
+        android:paddingLeft="8dp"
+        android:background="@color/colorLoginEditText"
+        android:hint="请输入用户名"/>
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="8dp"
+        android:background="@color/colorLoginEditText"
+        android:hint="请输入密码"/>
+    <EditText
+        android:id="@+id/login_old_password"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:paddingLeft="8dp"
+        android:background="@color/colorLoginEditText"
+        android:hint="请输入旧密码"/>
+
+    <Button
+        android:id="@+id/btn_user"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/loginbtnstye"
+        android:text="确定"
+        android:textSize="20dp"
+        android:layout_marginLeft="350dp"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
