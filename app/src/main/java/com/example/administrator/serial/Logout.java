@@ -1,19 +1,35 @@
 package com.example.administrator.serial;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.webkit.WebView.FindListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.content.SharedPreferences;
+
+
+import android.content.Intent;
+        import android.content.SharedPreferences;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.app.Activity;
+        import android.content.Intent;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.view.View.OnClickListener;
+        import android.webkit.WebView.FindListener;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.TextView;
+        import android.content.SharedPreferences;
 /**
  * Created by Administrator on 2019\1\4 0004.
  */
 
-public class user extends Activity {
+public class Logout extends Activity {
 
     Button btn_return;
     Button btn_user;
@@ -26,7 +42,7 @@ public class user extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.user);
+        setContentView(R.layout.logout);
         super.onCreate(savedInstanceState);
 
         btn_return = (Button) findViewById(R.id.btn_return);
@@ -40,7 +56,7 @@ public class user extends Activity {
         old_password_login =(EditText) findViewById(R.id.login_old_password);
     }
 
-    OnClickListener onclick = new OnClickListener() {
+    View.OnClickListener onclick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.btn_return)

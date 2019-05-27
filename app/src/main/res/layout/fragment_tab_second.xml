@@ -2,7 +2,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-
     android:orientation="vertical"
     android:padding="10dp" >
 
@@ -12,186 +11,214 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="245dp"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:background="@drawable/cricual_bg"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/img_temp"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/point_grey" />
+
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
-                    android:textSize="25sp"
+                    android:text="温度(℃)"
                     android:textColor="@color/white"
-                    android:text="温度(℃)" />
+                    android:textSize="25sp" />
             </LinearLayout>
-
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="5px"
+                android:layout_height="3px"
                 android:background="@color/white"></View>
+
             <TextView
                 android:id="@+id/tv_temp_value"
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:gravity="center"
-                android:textSize="60sp"
                 android:paddingTop="0dp"
-
+                android:text="_ _._"
                 android:textColor="@color/white"
-                android:text="_ _._" />
-
-
+                android:textSize="60sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="240dp"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:background="@drawable/cricual_bg"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/img_mix"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="45dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/point_grey" />
+
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
-                    android:textSize="25sp"
+                    android:text="转速(rpm)"
                     android:textColor="@color/white"
-                    android:text="转速(rpm)" />
+                    android:textSize="25sp" />
             </LinearLayout>
-
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="5px"
+                android:layout_height="3px"
                 android:background="@color/white"></View>
+
             <TextView
                 android:id="@+id/tv_mix_value"
-                android:layout_width="240dp"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:gravity="center"
-                android:textSize="60sp"
                 android:paddingTop="0dp"
+                android:text="0"
                 android:textColor="@color/white"
-                android:text="0" />
-
-
+                android:textSize="60sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="240dp"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:background="@drawable/cricual_bg"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/img_platform"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="45dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="10dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/point_grey" />
+
                 <TextView
                     android:id="@+id/tv_platform_value"
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="left|center_vertical"
                     android:paddingLeft="20dp"
-                    android:textSize="25sp"
+                    android:text="高度(cm)"
                     android:textColor="@color/white"
-                    android:text="高度(cm)" />
+                    android:textSize="25sp" />
             </LinearLayout>
-
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="5px"
+                android:layout_height="3px"
                 android:background="@color/white"></View>
+
             <TextView
-                android:layout_width="240dp"
+                android:id="@+id/tv_paplatform"
+                android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:gravity="center"
-                android:textSize="60sp"
                 android:paddingTop="0dp"
+                android:text="0 %"
                 android:textColor="@color/white"
-                android:text="0" />
-
+                android:textSize="60sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="240dp"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:background="@drawable/cricual_bg"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_marginTop="10dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/point_green" />
+
                 <TextView
-                    android:layout_width="150dp"
+                    android:id="@+id/tv_sys_time"
+                    android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:gravity="left|center_vertical"
-                    android:paddingLeft="20dp"
-                    android:textSize="25sp"
+                    android:gravity="center"
+                    android:paddingTop="0dp"
+                    android:text=""
                     android:textColor="@color/white"
-                    android:text="系统时间" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="5px"
+                android:layout_height="2px"
                 android:background="@color/white"></View>
-            <TextView
-                android:id="@+id/tv_sys_time"
-                android:layout_width="240dp"
-                android:layout_height="80dp"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:paddingTop="0dp"
-                android:textColor="@color/white"
-                android:text="" />
 
+            <TextView
+                android:id="@+id/tv_sys_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:paddingTop="0dp"
+                android:text="用户：user"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
+            <Button
+                android:id="@+id/btn_lockscreen"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/cricual_btn_2"
+                android:gravity="center"
+                android:text="锁屏"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/btn_shutdown"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/cricual_btn_2"
+                android:gravity="center"
+                android:text="关机"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -199,223 +226,79 @@
         android:layout_height="match_parent"
         android:paddingTop="5dp"
         android:orientation="horizontal">
-
         <LinearLayout
+            android:id="@+id/frameSwitch"
             android:layout_width="800dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/boder"
+                android:layout_height="230dp"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:text="温度\n(℃)" />
                 <Button
-                    android:id="@+id/btn_temp_sub"
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="60dp"
-                    android:text="一"
-                    android:textSize="20sp"
-                    android:textStyle = "bold"
-                    android:textColor="@color/black"
-                    android:background="@drawable/button_style" />
-
-                <TextView
-                    android:id="@+id/tv_temp"
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/textstye"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:text="37.5" />
-                <Button
-                    android:id="@+id/btn_temp_add"
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="十"
-                    android:textSize="20sp"
-                    android:textStyle = "bold"
-                    android:textColor="@color/black"
-                    android:background="@drawable/button_style" />
-                <CheckBox
-                    android:id="@+id/ck_temp"
-                    android:layout_width="120dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="60dp"
+                    android:id="@+id/btn_manual_control"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="80dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/switch_selector"
-                    android:text="加热"
-                    android:textSize="25sp"
-                    android:textColor="@color/white"
-                    android:button="@null" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/boder"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
+                    android:layout_marginTop="100dp"
                     android:gravity="center"
+                    android:textSize="30sp"
+                    android:background="@drawable/boder4"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:text="搅拌\n(rpm)" />
-                <Button
-                    android:id="@+id/btn_mix_sub"
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="60dp"
-                    android:text="一"
-                    android:textSize="20sp"
-                    android:textStyle = "bold"
-                    android:textColor="@color/black"
-                    android:background="@drawable/button_style" />
+                    android:text="手控模式" />
 
-                <TextView
-                    android:id="@+id/tv_mix"
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/textstye"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:text="240.0" />
                 <Button
-                    android:id="@+id/btn_mix_add"
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
+                    android:id="@+id/btn_system_set"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
                     android:layout_marginLeft="10dp"
-                    android:text="十"
-                    android:textSize="20sp"
-                    android:textStyle = "bold"
-                    android:textColor="@color/black"
-                    android:background="@drawable/button_style" />
-                <CheckBox
-                    android:id="@+id/ck_mix"
-                    android:layout_width="120dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="60dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/switch_selector"
-                    android:text="转动"
-                    android:textSize="25sp"
-                    android:textColor="@color/white"
-                    android:button="@null" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/boder"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
+                    android:layout_marginTop="100dp"
                     android:gravity="center"
+                    android:textSize="30sp"
+                    android:background="@drawable/boder4"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:text="水泵" />
-                <Button
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="60dp"
-                    android:text="一"
-                    android:textSize="20sp"
-                    android:textStyle = "bold"
-                    android:textColor="@color/black"
-                    android:background="@drawable/button_style" />
-
-                <TextView
-                    android:id="@+id/tv_pump"
-                    android:layout_width="140dp"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/textstye"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:text="0" />
-                <Button
-                    android:layout_width="60dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="十"
-                    android:textSize="20sp"
-                    android:textStyle = "bold"
-                    android:textColor="@color/black"
-                    android:background="@drawable/button_style" />
-                <CheckBox
-                    android:id="@+id/ck_pump"
-                    android:layout_width="120dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="60dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="0dp"
-                    android:background="@drawable/switch_selector"
-                    android:text="启动"
-                    android:textSize="25sp"
-                    android:textColor="@color/white"
-                    android:button="@null" />
+                    android:text="系统设置" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:background="@drawable/boder"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="25sp"
-                    android:text="计时\n(时:分:秒)" />
-                <Chronometer
-                    android:layout_width="180dp"
-                    android:layout_height="50dp"
+                <Button
+                    android:id="@+id/btn_auto_control"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="80dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="100dp"
                     android:gravity="center"
-                    android:format="00:00:00"
-                    android:textSize="45sp"
-                    android:id="@+id/timer"/>
-                <CheckBox
-                    android:id="@+id/ck_time"
-                    android:layout_width="120dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="60dp"
-                    android:layout_marginLeft="140dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/switch_selector"
-                    android:text="开始"
-                    android:textSize="25sp"
-                    android:textColor="@color/white"
-                    android:button="@null" />
+                    android:textSize="30sp"
+                    android:background="@drawable/boder4"
+                    android:textColor="@color/black"
+                    android:text="程控模式" />
+
+                <Button
+                    android:id="@+id/btn_report"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:background="@drawable/boder4"
+                    android:textColor="@color/black"
+                    android:text="数据报表" />
             </LinearLayout>
+
+
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="20dp"
+            android:layout_height="430dp"
+            android:background="@color/login"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -424,37 +307,34 @@
 
             <Button
                 android:id="@+id/btn_rise"
-                android:layout_width="160dp"
-                android:layout_height="100dp"
-                android:text="▲"
-                android:textSize="70sp"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:text="升"
+                android:textSize="40sp"
                 android:gravity="center"
                 android:textStyle = "bold"
                 android:background="@drawable/cricual" />
             <Button
                 android:id="@+id/btn_puase"
-                android:layout_width="160dp"
-                android:layout_height="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
                 android:layout_marginTop="5dp"
-                android:text="■"
+                android:text="停"
+                android:textSize="40sp"
                 android:gravity="center"
-                android:textSize="60sp"
                 android:textStyle = "bold"
                 android:background="@drawable/cricual" />
             <Button
                 android:id="@+id/btn_drop"
-                android:layout_width="160dp"
-                android:layout_height="100dp"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
                 android:layout_marginTop="5dp"
+                android:text="降"
+                android:textSize="40sp"
                 android:gravity="center"
-                android:text="▼"
-                android:textSize="70sp"
                 android:textStyle = "bold"
                 android:background="@drawable/cricual" />
-
         </LinearLayout>
-
-
     </LinearLayout>
 
 

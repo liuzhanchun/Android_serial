@@ -18,5 +18,6 @@
     <color name="tab_text_selected">#0084e8</color>
     <color name="tab_text_normal">#7597b3</color>
     <color name="colorLoginEditText">#F2F2F2</color>
-    F2F2F2
+    <color name="login">#36648B</color>
+
 </resources>

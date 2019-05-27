@@ -33,6 +33,8 @@
         <activity android:name=".TabSecondActivity" />
         <activity android:name=".TabThirdActivity" />
         <activity android:name=".SetConfigPara" />
-        <activity android:name=".user" />
+        <activity android:name=".Resetpwd" />
+        <activity android:name=".Logout" />
+        <activity android:name=".Register" />
     </application>
 </manifest>

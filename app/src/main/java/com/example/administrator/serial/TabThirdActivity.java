@@ -100,7 +100,7 @@ public class TabThirdActivity extends Activity
             ShowDataUpdateDialog();
         }
         if (v.getId() == R.id.btn_user) {
-            Intent it=new Intent(this, user.class);
+            Intent it=new Intent(this, Resetpwd.class);
             startActivityForResult(it,REQUEST);
         }
 

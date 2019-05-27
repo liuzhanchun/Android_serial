@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/frameSwitch"
+        android:layout_width="800dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_manual_control"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:background="@drawable/boder4"
+                android:textColor="@color/black"
+                android:text="手控模式" />
+
+            <Button
+                android:id="@+id/btn_system_set"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:background="@drawable/boder4"
+                android:textColor="@color/black"
+                android:text="系统设置" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_auto_control"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:background="@drawable/boder4"
+                android:textColor="@color/black"
+                android:text="程控模式" />
+
+            <Button
+                android:id="@+id/btn_report"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:background="@drawable/boder4"
+                android:textColor="@color/black"
+                android:text="数据报表" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

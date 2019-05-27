@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:baselineAligned="false">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_return"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/set_return"
+            android:text="" />
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:text="返回" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/boder"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:text="温度\n(℃)" />
+        <Button
+            android:id="@+id/btn_temp_sub"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:text="一"
+            android:textSize="20sp"
+            android:textStyle = "bold"
+            android:textColor="@color/black"
+            android:background="@drawable/button_style" />
+
+        <EditText
+            android:id="@+id/tv_temp"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/textstye"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:digits="1234567890."
+            android:maxLength="4"
+            android:cursorVisible="true"
+            android:inputType="number"
+            android:text="36.7" />
+        <Button
+            android:id="@+id/btn_temp_add"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:text="十"
+            android:textSize="20sp"
+            android:textStyle = "bold"
+            android:textColor="@color/black"
+            android:background="@drawable/button_style" />
+        <CheckBox
+            android:id="@+id/ck_temp"
+            android:layout_width="120dp"
+            android:layout_height="55dp"
+            android:paddingLeft="60dp"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/switch_selector"
+            android:text="加热"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:button="@null" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/boder"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:text="搅拌\n(rpm)" />
+        <Button
+            android:id="@+id/btn_mix_sub"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:text="一"
+            android:textSize="20sp"
+            android:textStyle = "bold"
+            android:textColor="@color/black"
+            android:background="@drawable/button_style" />
+
+        <EditText
+            android:id="@+id/tv_mix"
+            android:layout_width="140dp"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/textstye"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:digits="1234567890."
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="120.0" />
+        <Button
+            android:id="@+id/btn_mix_add"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="10dp"
+            android:text="十"
+            android:textSize="20sp"
+            android:textStyle = "bold"
+            android:textColor="@color/black"
+            android:background="@drawable/button_style" />
+
+        <CheckBox
+            android:id="@+id/ck_positive_inversion"
+            android:layout_width="120dp"
+            android:layout_height="55dp"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/switch_speed"
+            android:textSize="20sp"
+            android:text="正转"
+            android:textColor="@color/black"
+            android:button="@null" />
+
+        <CheckBox
+            android:id="@+id/ck_mix"
+            android:layout_width="120dp"
+            android:layout_height="55dp"
+            android:paddingLeft="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/switch_selector"
+            android:text="转动"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:button="@null" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/boder"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:text="水泵" />
+
+
+        <CheckBox
+            android:id="@+id/ck_pump"
+            android:layout_width="120dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="470dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/switch_selector"
+            android:button="@null"
+            android:paddingLeft="60dp"
+            android:text="启动"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/boder"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:text="计时\n(时:分:秒)" />
+        <com.example.administrator.serial.Anticlockwise
+            android:id="@+id/id_timer"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"
+            android:gravity="center"
+            android:textSize="45sp" />
+        <CheckBox
+            android:id="@+id/ck_reverse"
+            android:layout_width="120dp"
+            android:layout_height="55dp"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/switch_time"
+            android:textSize="20sp"
+            android:text="正计"
+            android:textColor="@color/black"
+            android:button="@null" />
+        <CheckBox
+            android:id="@+id/ck_time"
+            android:layout_width="120dp"
+            android:layout_height="55dp"
+            android:paddingLeft="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/switch_selector"
+            android:text="开始"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:button="@null" />
+    </LinearLayout>
+
+</LinearLayout>
