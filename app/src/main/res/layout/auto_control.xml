@@ -100,6 +100,7 @@
                 android:textSize="25sp"
                 android:text="模式一" />
             <TextView
+                android:id="@+id/temp1"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -107,18 +108,21 @@
                 android:text="37" />
 
             <TextView
+                android:id="@+id/rpm1"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
                 android:text="240.0" />
             <TextView
+                android:id="@+id/pump1"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
                 android:text="开启" />
             <TextView
+                android:id="@+id/trun1"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -149,6 +153,7 @@
                 android:textSize="25sp"
                 android:text="模式二" />
             <TextView
+                android:id="@+id/temp2"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -156,18 +161,21 @@
                 android:text="37" />
 
             <TextView
+                android:id="@+id/rpm2"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
                 android:text="240.0" />
             <TextView
+                android:id="@+id/pump2"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
                 android:text="开启" />
             <TextView
+                android:id="@+id/trun2"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -198,6 +206,7 @@
                 android:textSize="25sp"
                 android:text="模式三" />
             <TextView
+                android:id="@+id/temp3"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -205,18 +214,21 @@
                 android:text="37" />
 
             <TextView
+                android:id="@+id/rpm3"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
                 android:text="240.0" />
             <TextView
+                android:id="@+id/pump3"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
                 android:text="开启" />
             <TextView
+                android:id="@+id/trun3"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -247,6 +259,7 @@
                     android:textSize="25sp"
                     android:text="模式四" />
                 <TextView
+                    android:id="@+id/temp4"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -254,18 +267,21 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/rpm4"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="240.0" />
                 <TextView
+                    android:id="@+id/pump4"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="开启" />
                 <TextView
+                    android:id="@+id/trun4"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -296,6 +312,7 @@
                     android:textSize="25sp"
                     android:text="模式五" />
                 <TextView
+                    android:id="@+id/temp5"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -303,18 +320,21 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/rpm5"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="240.0" />
                 <TextView
+                    android:id="@+id/pump5"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="开启" />
                 <TextView
+                    android:id="@+id/trun5"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -345,6 +365,7 @@
                     android:textSize="25sp"
                     android:text="模式六" />
                 <TextView
+                    android:id="@+id/temp6"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -352,18 +373,21 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/rpm6"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="240.0" />
                 <TextView
+                    android:id="@+id/pump6"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="开启" />
                 <TextView
+                    android:id="@+id/trun6"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -394,6 +418,7 @@
                     android:textSize="25sp"
                     android:text="模式七" />
                 <TextView
+                    android:id="@+id/temp7"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -401,18 +426,21 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/rpm7"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="240.0" />
                 <TextView
+                    android:id="@+id/pump7"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="开启" />
                 <TextView
+                    android:id="@+id/trun7"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -443,6 +471,7 @@
                     android:textSize="25sp"
                     android:text="模式八" />
                 <TextView
+                    android:id="@+id/temp8"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -450,18 +479,21 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/rpm8"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="240.0" />
                 <TextView
+                    android:id="@+id/pump8"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="开启" />
                 <TextView
+                    android:id="@+id/trun8"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -492,6 +524,7 @@
                     android:textSize="25sp"
                     android:text="模式九" />
                 <TextView
+                    android:id="@+id/temp9"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -499,18 +532,21 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/rpm9"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="240.0" />
                 <TextView
+                    android:id="@+id/pump9"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="开启" />
                 <TextView
+                    android:id="@+id/trun9"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -541,6 +577,7 @@
                     android:textSize="25sp"
                     android:text="模式十" />
                 <TextView
+                    android:id="@+id/temp10"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -548,18 +585,21 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/rpm10"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="240.0" />
                 <TextView
+                    android:id="@+id/pump10"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
                     android:text="开启" />
                 <TextView
+                    android:id="@+id/trun10"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -590,6 +630,7 @@
                     android:textSize="25sp"
                     android:text="模式十一" />
                 <TextView
+                    android:id="@+id/temp11"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -597,6 +638,7 @@
                     android:text="37" />
 
                 <TextView
+                    android:id="@+id/r"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -639,6 +681,7 @@
                     android:textSize="25sp"
                     android:text="模式十二" />
                 <TextView
+                    android:id="@+id/temp12"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"

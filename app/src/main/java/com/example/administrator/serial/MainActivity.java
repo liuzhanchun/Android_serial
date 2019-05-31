@@ -42,13 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         Window _window;
-
         _window = getWindow();
-
         WindowManager.LayoutParams params = _window.getAttributes();
-
         params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION|View.SYSTEM_UI_FLAG_IMMERSIVE;
-
         _window.setAttributes(params);
 
        // hideBottomUIMenu();
@@ -61,7 +57,79 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
        // sp = this.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        Common.sharesys = getSharedPreferences("user", Context.MODE_PRIVATE);
+        Common.sharesys   = getSharedPreferences("user", Context.MODE_PRIVATE);
+        Common.ModeConfig = getSharedPreferences("mode_config",Context.MODE_PRIVATE);
+
+        //判断是否第一次启动该APP
+        boolean isFirstRun =  Common.ModeConfig.getBoolean("isFirstRun",true);
+
+        if (isFirstRun)
+        {
+            //创建自动模式配置列表
+            SharedPreferences.Editor editor=Common.ModeConfig.edit();
+            editor.putBoolean("isFirstRun", false);
+
+            editor.putString("temp1","37");
+            editor.putString("temp2","37");
+            editor.putString("temp3","37");
+            editor.putString("temp4","37");
+            editor.putString("temp5","37");
+            editor.putString("temp6","37");
+            editor.putString("temp7","37");
+            editor.putString("temp8","37");
+            editor.putString("temp9","37");
+            editor.putString("temp10","37");
+            editor.putString("temp11","37");
+            editor.putString("temp12","37");
+
+            editor.putString("rmp1","240.0");
+            editor.putString("rmp2","240.0");
+            editor.putString("rmp3","240.0");
+            editor.putString("rmp4","240.0");
+            editor.putString("rmp5","240.0");
+            editor.putString("rmp6","240.0");
+            editor.putString("rmp7","240.0");
+            editor.putString("rmp8","240.0");
+            editor.putString("rmp9","240.0");
+            editor.putString("rmp10","240.0");
+            editor.putString("rmp11","240.0");
+            editor.putString("rmp12","240.0");
+
+            editor.putString("pump1","开启");
+            editor.putString("pump2","开启");
+            editor.putString("pump3","开启");
+            editor.putString("pump4","开启");
+            editor.putString("pump5","开启");
+            editor.putString("pump6","开启");
+            editor.putString("pump7","开启");
+            editor.putString("pump8","开启");
+            editor.putString("pump9","开启");
+            editor.putString("pump10","开启");
+            editor.putString("pump11","开启");
+            editor.putString("pump12","开启");
+
+            editor.putString("turn1","正转");
+            editor.putString("turn2","正转");
+            editor.putString("turn3","正转");
+            editor.putString("turn4","正转");
+            editor.putString("turn5","正转");
+            editor.putString("turn6","正转");
+            editor.putString("turn7","正转");
+            editor.putString("turn8","正转");
+            editor.putString("turn9","正转");
+            editor.putString("turn10","正转");
+            editor.putString("turn11","正转");
+            editor.putString("turn12","正转");
+
+            editor.commit();
+
+
+
+        }
+
+
+
+
         //找到相应的布局及控件
         setContentView(R.layout.activity_main);
         id_login=(EditText) findViewById(R.id.login_id);

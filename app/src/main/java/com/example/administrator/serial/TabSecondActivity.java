@@ -148,6 +148,58 @@ public class TabSecondActivity extends Activity
     private Button btn_puase;
     private Button btn_drop;
 
+    private TextView temp1;
+    private TextView temp2;
+    private TextView temp3;
+    private TextView temp4;
+    private TextView temp5;
+    private TextView temp6;
+    private TextView temp7;
+    private TextView temp8;
+    private TextView temp9;
+    private TextView temp10;
+    private TextView temp11;
+    private TextView temp12;
+
+    private TextView pump1;
+    private TextView pump2;
+    private TextView pump3;
+    private TextView pump4;
+    private TextView pump5;
+    private TextView pump6;
+    private TextView pump7;
+    private TextView pump8;
+    private TextView pump9;
+    private TextView pump10;
+    private TextView pump11;
+    private TextView pump12;
+
+    private TextView turn1;
+    private TextView turn2;
+    private TextView turn3;
+    private TextView turn4;
+    private TextView turn5;
+    private TextView turn6;
+    private TextView turn7;
+    private TextView turn8;
+    private TextView turn9;
+    private TextView turn10;
+    private TextView turn11;
+    private TextView turn12;
+
+    private TextView rmp1;
+    private TextView rmp2;
+    private TextView rmp3;
+    private TextView rmp4;
+    private TextView rmp5;
+    private TextView rmp6;
+    private TextView rmp7;
+    private TextView rmp8;
+    private TextView rmp9;
+    private TextView rmp10;
+    private TextView rmp11;
+    private TextView rmp12;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -714,6 +766,8 @@ public class TabSecondActivity extends Activity
         ck_mode10  =(CheckBox) viewOne.findViewById(R.id.ck_mode10);
         ck_mode11  =(CheckBox) viewOne.findViewById(R.id.ck_mode11);
         ck_mode12  =(CheckBox) viewOne.findViewById(R.id.ck_mode12);
+
+
 
         btn_return.setOnClickListener(new OnClickListener()
         {

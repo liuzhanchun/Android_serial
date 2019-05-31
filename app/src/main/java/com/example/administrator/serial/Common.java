@@ -48,6 +48,7 @@ public class Common {
     static byte[] cmdsend_print_end=     new byte[]{0x0d,0x0a,0x0d,0x0a ,0x0d,0x0a,0x0d,0x0a,0x0d,0x0a,0x0d,0x0a};
 
     static public SharedPreferences sharesys;
+    static public SharedPreferences ModeConfig;
 
     static public String g_idvalue;
     static public String g_passwordvalue;
