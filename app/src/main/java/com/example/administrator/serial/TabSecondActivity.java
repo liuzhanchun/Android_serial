@@ -1,14 +1,20 @@
 package com.example.administrator.serial;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.InputType;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Window;
 import android.view.WindowManager;
@@ -31,6 +37,9 @@ import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.widget.EditText;
 import android.content.Intent;
+
+import com.example.administrator.serial.util.DateUtil;
+import com.example.administrator.serial.util.FileUtil;
 import com.example.x6.serial.SerialPort;
 import java.util.Arrays;
 import android.view.LayoutInflater;
@@ -174,32 +183,33 @@ public class TabSecondActivity extends Activity
     private TextView pump11;
     private TextView pump12;
 
-    private TextView turn1;
-    private TextView turn2;
-    private TextView turn3;
-    private TextView turn4;
-    private TextView turn5;
-    private TextView turn6;
-    private TextView turn7;
-    private TextView turn8;
-    private TextView turn9;
-    private TextView turn10;
-    private TextView turn11;
-    private TextView turn12;
+    private TextView trun1;
+    private TextView trun2;
+    private TextView trun3;
+    private TextView trun4;
+    private TextView trun5;
+    private TextView trun6;
+    private TextView trun7;
+    private TextView trun8;
+    private TextView trun9;
+    private TextView trun10;
+    private TextView trun11;
+    private TextView trun12;
 
-    private TextView rmp1;
-    private TextView rmp2;
-    private TextView rmp3;
-    private TextView rmp4;
-    private TextView rmp5;
-    private TextView rmp6;
-    private TextView rmp7;
-    private TextView rmp8;
-    private TextView rmp9;
-    private TextView rmp10;
-    private TextView rmp11;
-    private TextView rmp12;
+    private TextView rpm1;
+    private TextView rpm2;
+    private TextView rpm3;
+    private TextView rpm4;
+    private TextView rpm5;
+    private TextView rpm6;
+    private TextView rpm7;
+    private TextView rpm8;
+    private TextView rpm9;
+    private TextView rpm10;
+    private TextView rpm11;
+    private TextView rpm12;
 
+    private static String udisk_path = "/storage/usbhost1/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -380,6 +390,7 @@ public class TabSecondActivity extends Activity
         Button btn_time = (Button) viewOne.findViewById(R.id.btn_time);
         btn_heat_time  =(Button) viewOne.findViewById(R.id.btn_heat_time);
         Button btn_download= (Button) viewOne.findViewById(R.id.btn_download);
+        Button btn_set_mode = (Button)viewOne.findViewById(R.id.btn_set_mode);
         tv_date=(TextView)  viewOne.findViewById(R.id.tv_date);
         tv_time =(TextView)  viewOne.findViewById(R.id.tv_time);
 
@@ -442,6 +453,17 @@ public class TabSecondActivity extends Activity
                 }
             }
         });
+        btn_set_mode.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                if (v.getId() == R.id.btn_set_mode)
+                {
+                    ShowModeDialog();
+                }
+            }
+        });
+
         btn_printer.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -617,43 +639,160 @@ public class TabSecondActivity extends Activity
     }
     private void ShowDownloadDialog() {
 
-        final ProgressDialog dialog = new ProgressDialog(this);
-        final int MAX_PROGRESS = 100;
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setCancelable(true);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.setIcon(R.mipmap.ic_launcher);
-        dialog.setTitle("请插入U盘！");
-        dialog.setMessage("数据下载中...");
-        dialog.setProgress(0);
-        //监听取消时间
-        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                showText("数据下载完成！");
-                hideBottomUIMenu();
-            }
-        });
-        dialog.show();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int progress = 0;
-                while (progress < MAX_PROGRESS) {
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    progress++;
-                    //非UI线程，可以处理DialogUI
-                    dialog.setProgress(progress);
+        boolean bIsU = new USBDiskState().isMounted();
+
+        if (bIsU)
+        {
+            //U盘已经插入
+            final ProgressDialog dialog = new ProgressDialog(this);
+            final int MAX_PROGRESS = 1;
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.setIcon(R.mipmap.ic_launcher);
+            dialog.setTitle("数据下载到U盘！");
+            dialog.setMessage("数据下载中...");
+            dialog.setProgress(0);
+            //监听取消时间
+            dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    showText("数据下载完成！");
+                    hideBottomUIMenu();
                 }
-                dialog.cancel();
+            });
+            dialog.show();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    int progress = 0;
+                    while (progress < MAX_PROGRESS) {
+                        try {
+
+                            //填写下载内容
+                            String file_path = udisk_path + DateUtil.getNowDateTime("") + ".txt";
+                            String content = "99999hgnjdmhd";
+                            //FileUtil.openText(file_path);
+                            FileUtil.saveText(file_path,content);
+                            //   tv_path.setText("用户注册信息文件的保存路径为：\n"+file_path);
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        progress++;
+                        //非UI线程，可以处理DialogUI
+                        dialog.setProgress(progress);
+                    }
+                    dialog.cancel();
+                }
+            }).start();
+        }
+        else
+            {
+             showText("请插入U盘！");
+
             }
-        }).start();
+
+
 
     }
+    private void ShowModeDialog() {
+
+        boolean bIsU = new USBDiskState().isMounted();
+
+        if (bIsU)
+        {
+            //U盘已经插入
+            final ProgressDialog dialog = new ProgressDialog(this);
+            final int MAX_PROGRESS = 1;
+            dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            dialog.setCancelable(true);
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.setIcon(R.mipmap.ic_launcher);
+            dialog.setTitle("数据从U盘更新！");
+            dialog.setMessage("数据更新中...");
+            dialog.setProgress(0);
+            //监听取消时间
+            dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    showText("数据更新完成！");
+                    hideBottomUIMenu();
+                }
+            });
+            dialog.show();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    int progress = 0;
+                    while (progress < MAX_PROGRESS) {
+                        try {
+
+                            // 数据从U盘中开始更新
+                            readMonDataCsv();
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        progress++;
+                        //非UI线程，可以处理DialogUI
+                        dialog.setProgress(progress);
+                    }
+                    dialog.cancel();
+                }
+            }).start();
+        }
+        else
+        {
+            showText("请插入U盘！");
+
+        }
+
+
+
+    }
+    private void readMonDataCsv() {
+        int i = 0;// 用于标记打印的条数
+        try {
+            String file_path = udisk_path  + "ModeConfig.csv";
+           // File csv = new File(Environment.getExternalStorageDirectory() + "/myshare/csv/000001.csv"); // CSV文件路径
+            BufferedReader br = new BufferedReader(new FileReader(file_path));
+            br.readLine();
+            String line = "";
+            /**
+             * 这里读取csv文件中的前12条数据
+             * 如果要读取第10条到30条数据,只需定义i初始值为9,wile中i<10改为i>=9&&i<30即可,其他范围依次类推
+             */
+            while ((line = br.readLine()) != null && i<12) { // 这里读取csv文件中的前10条数据
+                i++;
+            //    System.out.println("第" + i + "行：" + line);// 输出每一行数据
+                Log.e("www", line);
+                //showText(line);
+                /**
+                 *  csv格式每一列内容以逗号分隔,因此要取出想要的内容,以逗号为分割符分割字符串即可,
+                 *  把分割结果存到到数组中,根据数组来取得相应值
+                 */
+                //将CSV文件内容写入机器
+
+                String buffer[] = line.split(",");// 以逗号分隔
+                SharedPreferences.Editor editor=Common.ModeConfig.edit();
+                String temp  = "temp"+String.valueOf(i);
+                editor.putString(temp,buffer[1]);
+                String rpm  = "rpm"+String.valueOf(i);
+                editor.putString(rpm, buffer[2]);
+                String pump  = "pump"+String.valueOf(i);
+                editor.putString(pump,buffer[3]);
+                String trun  = "trun"+String.valueOf(i);
+                editor.putString(trun,buffer[4]);
+                editor.commit();
+
+            }
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void ShowPrintLogDialog() {
 
         final ProgressDialog dialog = new ProgressDialog(this);
@@ -751,6 +890,12 @@ public class TabSecondActivity extends Activity
     }
     public void GetAutoControlView()
     {
+
+      //  final byte [] temp_value = new byte[3];
+       // byte [] rpm_value = new byte[4];
+        final byte [] pump_value = new byte[1];
+        final byte [] trun_value = new byte[1];
+
         View viewOne = getLayoutInflater().inflate(R.layout.auto_control, null);
 
         Button btn_return = (Button) viewOne.findViewById(R.id.btn_return);
@@ -767,6 +912,153 @@ public class TabSecondActivity extends Activity
         ck_mode11  =(CheckBox) viewOne.findViewById(R.id.ck_mode11);
         ck_mode12  =(CheckBox) viewOne.findViewById(R.id.ck_mode12);
 
+        temp1 = (TextView)viewOne.findViewById(R.id.temp1);
+        final String st_temp1=Common.ModeConfig.getString("temp1","");
+        temp1.setText(st_temp1);
+        temp2 = (TextView)viewOne.findViewById(R.id.temp2);
+        final String st_temp2=Common.ModeConfig.getString("temp2","");
+        temp2.setText(st_temp2);
+        temp3 = (TextView)viewOne.findViewById(R.id.temp3);
+        final String st_temp3=Common.ModeConfig.getString("temp3","");
+        temp3.setText(st_temp3);
+        temp4 = (TextView)viewOne.findViewById(R.id.temp4);
+        final String st_temp4=Common.ModeConfig.getString("temp4","");
+        temp4.setText(st_temp4);
+        temp5 = (TextView)viewOne.findViewById(R.id.temp5);
+        final String st_temp5=Common.ModeConfig.getString("temp5","");
+        temp5.setText(st_temp5);
+        temp6 = (TextView)viewOne.findViewById(R.id.temp6);
+        final String st_temp6=Common.ModeConfig.getString("temp6","");
+        temp6.setText(st_temp6);
+        temp7 = (TextView)viewOne.findViewById(R.id.temp7);
+        final String st_temp7=Common.ModeConfig.getString("temp7","");
+        temp7.setText(st_temp7);
+        temp8 = (TextView)viewOne.findViewById(R.id.temp8);
+        final String st_temp8=Common.ModeConfig.getString("temp8","");
+        temp8.setText(st_temp8);
+        temp9 = (TextView)viewOne.findViewById(R.id.temp9);
+        final String st_temp9=Common.ModeConfig.getString("temp9","");
+        temp9.setText(st_temp9);
+        temp10 = (TextView)viewOne.findViewById(R.id.temp10);
+        final String st_temp10=Common.ModeConfig.getString("temp10","");
+        temp10.setText(st_temp10);
+        temp11 = (TextView)viewOne.findViewById(R.id.temp11);
+        final String st_temp11=Common.ModeConfig.getString("temp11","");
+        temp11.setText(st_temp11);
+        temp12 = (TextView)viewOne.findViewById(R.id.temp12);
+        final String st_temp12=Common.ModeConfig.getString("temp12","");
+        temp12.setText(st_temp12);
+
+        rpm1 = (TextView)viewOne.findViewById(R.id.rpm1);
+        final String st_rpm1=Common.ModeConfig.getString("rpm1","");
+        rpm1.setText(st_rpm1);
+        rpm2 = (TextView)viewOne.findViewById(R.id.rpm2);
+        final String st_rpm2=Common.ModeConfig.getString("rpm2","");
+        rpm2.setText(st_rpm2);
+        rpm3 = (TextView)viewOne.findViewById(R.id.rpm3);
+        final String st_rpm3=Common.ModeConfig.getString("rpm3","");
+        rpm3.setText(st_rpm3);
+        rpm4 = (TextView)viewOne.findViewById(R.id.rpm4);
+        final String st_rpm4=Common.ModeConfig.getString("rpm4","");
+        rpm4.setText(st_rpm4);
+        rpm5 = (TextView)viewOne.findViewById(R.id.rpm5);
+        final String st_rpm5=Common.ModeConfig.getString("rpm5","");
+        rpm5.setText(st_rpm5);
+        rpm6 = (TextView)viewOne.findViewById(R.id.rpm6);
+        final String st_rpm6=Common.ModeConfig.getString("rpm6","");
+        rpm6.setText(st_rpm6);
+        rpm7 = (TextView)viewOne.findViewById(R.id.rpm7);
+        final String st_rpm7=Common.ModeConfig.getString("rpm7","");
+        rpm7.setText(st_rpm7);
+        rpm8 = (TextView)viewOne.findViewById(R.id.rpm8);
+        final String st_rpm8=Common.ModeConfig.getString("rpm8","");
+        rpm8.setText(st_rpm8);
+        rpm9 = (TextView)viewOne.findViewById(R.id.rpm9);
+        final String st_rpm9=Common.ModeConfig.getString("rpm9","");
+        rpm9.setText(st_rpm9);
+        rpm10 = (TextView)viewOne.findViewById(R.id.rpm10);
+        final String st_rpm10=Common.ModeConfig.getString("rpm10","");
+        rpm10.setText(st_rpm10);
+        rpm11 = (TextView)viewOne.findViewById(R.id.rpm11);
+        final String st_rpm11=Common.ModeConfig.getString("rpm11","");
+        rpm11.setText(st_rpm11);
+        rpm12 = (TextView)viewOne.findViewById(R.id.rpm12);
+        final String st_rpm12=Common.ModeConfig.getString("rpm12","");
+        rpm12.setText(st_rpm12);
+
+        pump1 = (TextView)viewOne.findViewById(R.id.pump1);
+        final String st_pump1=Common.ModeConfig.getString("pump1","");
+        pump1.setText(st_pump1);
+        pump2 = (TextView)viewOne.findViewById(R.id.pump2);
+        final String st_pump2=Common.ModeConfig.getString("pump2","");
+        pump2.setText(st_pump2);
+        pump3 = (TextView)viewOne.findViewById(R.id.pump3);
+        final String st_pump3=Common.ModeConfig.getString("pump3","");
+        pump3.setText(st_pump3);
+        pump4 = (TextView)viewOne.findViewById(R.id.pump4);
+        final String st_pump4=Common.ModeConfig.getString("pump4","");
+        pump4.setText(st_pump4);
+        pump5 = (TextView)viewOne.findViewById(R.id.pump5);
+        final String st_pump5=Common.ModeConfig.getString("pump5","");
+        pump5.setText(st_pump5);
+        pump6 = (TextView)viewOne.findViewById(R.id.pump6);
+        final String st_pump6=Common.ModeConfig.getString("pump6","");
+        pump6.setText(st_pump6);
+        pump7 = (TextView)viewOne.findViewById(R.id.pump7);
+        final String st_pump7=Common.ModeConfig.getString("pump7","");
+        pump7.setText(st_pump7);
+        pump8 = (TextView)viewOne.findViewById(R.id.pump8);
+        final String st_pump8=Common.ModeConfig.getString("pump8","");
+        pump8.setText(st_pump8);
+        pump9 = (TextView)viewOne.findViewById(R.id.pump9);
+        final String st_pump9=Common.ModeConfig.getString("pump9","");
+        pump9.setText(st_pump9);
+        pump10 = (TextView)viewOne.findViewById(R.id.pump10);
+        final String st_pump10=Common.ModeConfig.getString("pump10","");
+        pump10.setText(st_pump10);
+        pump11 = (TextView)viewOne.findViewById(R.id.pump11);
+        final String st_pump11=Common.ModeConfig.getString("pump11","");
+        pump11.setText(st_pump11);
+        pump12 = (TextView)viewOne.findViewById(R.id.pump12);
+        final String st_pump12=Common.ModeConfig.getString("pump12","");
+        pump12.setText(st_pump12);
+
+        trun1 = (TextView)viewOne.findViewById(R.id.trun1);
+        final String st_trun1=Common.ModeConfig.getString("trun1","");
+        trun1.setText(st_trun1);
+        trun2 = (TextView)viewOne.findViewById(R.id.trun2);
+        final String st_trun2=Common.ModeConfig.getString("trun2","");
+        trun2.setText(st_trun2);
+        trun3 = (TextView)viewOne.findViewById(R.id.trun3);
+        final String st_trun3=Common.ModeConfig.getString("trun3","");
+        trun3.setText(st_trun3);
+        trun4 = (TextView)viewOne.findViewById(R.id.trun4);
+        final String st_trun4=Common.ModeConfig.getString("trun4","");
+        trun4.setText(st_trun4);
+        trun5 = (TextView)viewOne.findViewById(R.id.trun5);
+        final String st_trun5=Common.ModeConfig.getString("trun5","");
+        trun5.setText(st_trun5);
+        trun6 = (TextView)viewOne.findViewById(R.id.trun6);
+        final String st_trun6=Common.ModeConfig.getString("trun6","");
+        trun6.setText(st_trun6);
+        trun7 = (TextView)viewOne.findViewById(R.id.trun7);
+        final String st_trun7=Common.ModeConfig.getString("trun7","");
+        trun7.setText(st_trun7);
+        trun8 = (TextView)viewOne.findViewById(R.id.trun8);
+        final String st_trun8=Common.ModeConfig.getString("trun8","");
+        trun8.setText(st_trun8);
+        trun9 = (TextView)viewOne.findViewById(R.id.trun9);
+        final String st_trun9=Common.ModeConfig.getString("trun9","");
+        trun9.setText(st_trun9);
+        trun10 = (TextView)viewOne.findViewById(R.id.trun10);
+        final String st_trun10=Common.ModeConfig.getString("trun10","");
+        trun10.setText(st_trun10);
+        trun11 = (TextView)viewOne.findViewById(R.id.trun11);
+        final String st_trun11=Common.ModeConfig.getString("trun11","");
+        trun11.setText(st_trun11);
+        trun12 = (TextView)viewOne.findViewById(R.id.trun12);
+        final String st_trun12=Common.ModeConfig.getString("trun12","");
+        trun12.setText(st_trun12);
 
 
         btn_return.setOnClickListener(new OnClickListener()
@@ -800,6 +1092,49 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump1=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun1=="正转")
+                    {
+                       trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp1);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm1);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+
+                    //Common.byteMerger(Common.cmdsend_mode_program,pump_value);
+                    //Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value);
+                    //Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value);
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
+
+
                 }else{
                     ck_mode1.setText("启动");
                     ck_mode1.setPadding(60,0,0,0);
@@ -835,6 +1170,49 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+
+                    //下发数据
+                    if (st_pump2=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun2=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp2);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm2);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+
+                    //Common.byteMerger(Common.cmdsend_mode_program,pump_value);
+                    //Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value);
+                    //Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value);
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
+
                 }else{
                     ck_mode2.setText("启动");
                     ck_mode2.setPadding(60,0,0,0);
@@ -871,6 +1249,43 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump3=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun3=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp3);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm3);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode3.setText("启动");
                     ck_mode3.setPadding(60,0,0,0);
@@ -906,6 +1321,43 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump4=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun4=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp4);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm4);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode4.setText("启动");
                     ck_mode4.setPadding(60,0,0,0);
@@ -940,6 +1392,43 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump5=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun5=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp5);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm5);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode5.setText("启动");
                     ck_mode5.setPadding(60,0,0,0);
@@ -974,6 +1463,43 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump6=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun6=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp6);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm6);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode6.setText("启动");
                     ck_mode6.setPadding(60,0,0,0);
@@ -1008,6 +1534,43 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump7=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun7=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp7);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm7);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode7.setText("启动");
                     ck_mode7.setPadding(60,0,0,0);
@@ -1042,6 +1605,43 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump8=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun8=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp8);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm8);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode7.setText("启动");
                     ck_mode7.setPadding(60,0,0,0);
@@ -1076,6 +1676,43 @@ public class TabSecondActivity extends Activity
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump9=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun9=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp9);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm9);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode9.setText("启动");
                     ck_mode9.setPadding(60,0,0,0);
@@ -1110,6 +1747,43 @@ public class TabSecondActivity extends Activity
                     ck_mode9.setEnabled(false);
                     ck_mode11.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump10=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun10=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp10);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm10);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode10.setText("启动");
                     ck_mode10.setPadding(60,0,0,0);
@@ -1144,6 +1818,43 @@ public class TabSecondActivity extends Activity
                     ck_mode9.setEnabled(false);
                     ck_mode10.setEnabled(false);
                     ck_mode12.setEnabled(false);
+                    //下发数据
+                    if (st_pump11=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun11=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp11);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm11);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode11.setText("启动");
                     ck_mode11.setPadding(60,0,0,0);
@@ -1178,6 +1889,43 @@ public class TabSecondActivity extends Activity
                     ck_mode9.setEnabled(false);
                     ck_mode10.setEnabled(false);
                     ck_mode11.setEnabled(false);
+                    //下发数据
+                    if (st_pump12=="开启")
+                    {
+                        pump_value[0] = 0x31;
+                    }
+                    else{
+                        pump_value[0] = 0x32;
+                    }
+                    if (st_trun12=="正转")
+                    {
+                        trun_value [0] = 0x31;
+                    }
+                    else{
+                        trun_value [0] = 0x32;
+                    }
+
+                    String szvalue;
+                    java.text.DecimalFormat myformat;
+                    float fvalue;
+
+                    myformat=new java.text.DecimalFormat("00.0");
+                    fvalue =Float.parseFloat(st_temp12);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[] temp_value = szvalue.getBytes();
+
+
+                    myformat=new java.text.DecimalFormat("000.0");
+                    fvalue =Float.parseFloat(st_rpm12);
+                    szvalue = myformat.format(fvalue);
+                    szvalue = szvalue.replace(".","");
+                    byte[]rpm_value = szvalue.getBytes();
+
+                    byte []lrc= Common.LRC_Calculate( Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.byteMerger(Common.cmdsend_mode_program,pump_value),rpm_value),trun_value),temp_value));
+                    ttyS3send(lrc);
+                    ttyS3send(Common.cmdsend_enter);
                 }else{
                     ck_mode12.setText("启动");
                     ck_mode12.setPadding(60,0,0,0);

@@ -47,6 +47,12 @@ public class Common {
     static byte[] cmdsend_enter    =     new byte[]{0x0d,0x0a};
     static byte[] cmdsend_print_end=     new byte[]{0x0d,0x0a,0x0d,0x0a ,0x0d,0x0a,0x0d,0x0a,0x0d,0x0a,0x0d,0x0a};
 
+    /////
+    static byte[] pump_on = new byte[]{0x31};
+    static byte[] pump_off = new byte[]{0x32};
+    static byte[] trun_on = new byte []{0x31};
+    static byte[] trun_off = new byte[]{0x32};
+
     static public SharedPreferences sharesys;
     static public SharedPreferences ModeConfig;
 

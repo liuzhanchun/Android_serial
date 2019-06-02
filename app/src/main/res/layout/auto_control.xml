@@ -105,7 +105,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="37" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/rpm1"
@@ -113,21 +113,21 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="240.0" />
+                android:text="" />
             <TextView
                 android:id="@+id/pump1"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="开启" />
+                android:text="" />
             <TextView
                 android:id="@+id/trun1"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="正转" />
+                android:text="" />
             <CheckBox
                 android:id="@+id/ck_mode1"
                 android:layout_width="120dp"
@@ -158,7 +158,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="37" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/rpm2"
@@ -166,21 +166,21 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="240.0" />
+                android:text="" />
             <TextView
                 android:id="@+id/pump2"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="开启" />
+                android:text="" />
             <TextView
                 android:id="@+id/trun2"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="正转" />
+                android:text="" />
             <CheckBox
                 android:id="@+id/ck_mode2"
                 android:layout_width="120dp"
@@ -211,7 +211,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="37" />
+                android:text="" />
 
             <TextView
                 android:id="@+id/rpm3"
@@ -219,21 +219,21 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="240.0" />
+                android:text="" />
             <TextView
                 android:id="@+id/pump3"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="开启" />
+                android:text="" />
             <TextView
                 android:id="@+id/trun3"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:text="正转" />
+                android:text="" />
             <CheckBox
                 android:id="@+id/ck_mode3"
                 android:layout_width="120dp"
@@ -264,7 +264,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/rpm4"
@@ -272,21 +272,21 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/pump4"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/trun4"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode4"
                     android:layout_width="120dp"
@@ -317,7 +317,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/rpm5"
@@ -325,21 +325,21 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/pump5"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/trun5"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode5"
                     android:layout_width="120dp"
@@ -370,7 +370,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/rpm6"
@@ -378,21 +378,21 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/pump6"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/trun6"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode6"
                     android:layout_width="120dp"
@@ -423,7 +423,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/rpm7"
@@ -431,21 +431,21 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/pump7"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/trun7"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode7"
                     android:layout_width="120dp"
@@ -476,7 +476,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/rpm8"
@@ -484,21 +484,21 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/pump8"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/trun8"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode8"
                     android:layout_width="120dp"
@@ -529,29 +529,30 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/rpm9"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text=""
+                    android:textSize="25sp" />
+
                 <TextView
                     android:id="@+id/pump9"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/trun9"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode9"
                     android:layout_width="120dp"
@@ -582,7 +583,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/rpm10"
@@ -590,21 +591,21 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/pump10"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
                     android:id="@+id/trun10"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode10"
                     android:layout_width="120dp"
@@ -635,27 +636,29 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
-                    android:id="@+id/r"
+                    android:id="@+id/rpm11"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
+                    android:id="@+id/pump11"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
+                    android:id="@+id/trun11"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode11"
                     android:layout_width="120dp"
@@ -686,26 +689,29 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="37" />
+                    android:text="" />
 
                 <TextView
+                    android:id="@+id/rpm12"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="240.0" />
+                    android:text="" />
                 <TextView
+                    android:id="@+id/pump12"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="开启" />
+                    android:text="" />
                 <TextView
+                    android:id="@+id/trun12"
                     android:layout_width="130dp"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:textSize="25sp"
-                    android:text="正转" />
+                    android:text="" />
                 <CheckBox
                     android:id="@+id/ck_mode12"
                     android:layout_width="120dp"

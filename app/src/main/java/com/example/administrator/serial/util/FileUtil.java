@@ -24,6 +24,7 @@ public class FileUtil {
 		}
 	}
 
+
 	public static String openText(String path) {
 		String readStr = "";
 		try {
@@ -37,7 +38,6 @@ public class FileUtil {
 		}
 		return readStr;
 	}
-
 	public static void saveImage(String path, Bitmap bitmap) {
 		try {
 			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(path));

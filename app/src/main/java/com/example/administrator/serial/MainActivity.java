@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences.Editor editor=Common.ModeConfig.edit();
             editor.putBoolean("isFirstRun", false);
 
-            editor.putString("temp1","37");
+            editor.putString("temp1","38");
             editor.putString("temp2","37");
             editor.putString("temp3","37");
             editor.putString("temp4","37");
@@ -82,18 +82,18 @@ public class MainActivity extends AppCompatActivity {
             editor.putString("temp11","37");
             editor.putString("temp12","37");
 
-            editor.putString("rmp1","240.0");
-            editor.putString("rmp2","240.0");
-            editor.putString("rmp3","240.0");
-            editor.putString("rmp4","240.0");
-            editor.putString("rmp5","240.0");
-            editor.putString("rmp6","240.0");
-            editor.putString("rmp7","240.0");
-            editor.putString("rmp8","240.0");
-            editor.putString("rmp9","240.0");
-            editor.putString("rmp10","240.0");
-            editor.putString("rmp11","240.0");
-            editor.putString("rmp12","240.0");
+            editor.putString("rpm1","240.0");
+            editor.putString("rpm2","240.0");
+            editor.putString("rpm3","240.0");
+            editor.putString("rpm4","240.0");
+            editor.putString("rpm5","240.0");
+            editor.putString("rpm6","240.0");
+            editor.putString("rpm7","240.0");
+            editor.putString("rpm8","240.0");
+            editor.putString("rpm9","240.0");
+            editor.putString("rpm10","240.0");
+            editor.putString("rpm11","240.0");
+            editor.putString("rpm12","240.0");
 
             editor.putString("pump1","开启");
             editor.putString("pump2","开启");
@@ -108,18 +108,18 @@ public class MainActivity extends AppCompatActivity {
             editor.putString("pump11","开启");
             editor.putString("pump12","开启");
 
-            editor.putString("turn1","正转");
-            editor.putString("turn2","正转");
-            editor.putString("turn3","正转");
-            editor.putString("turn4","正转");
-            editor.putString("turn5","正转");
-            editor.putString("turn6","正转");
-            editor.putString("turn7","正转");
-            editor.putString("turn8","正转");
-            editor.putString("turn9","正转");
-            editor.putString("turn10","正转");
-            editor.putString("turn11","正转");
-            editor.putString("turn12","正转");
+            editor.putString("trun1","正转");
+            editor.putString("trun2","正转");
+            editor.putString("trun3","正转");
+            editor.putString("trun4","正转");
+            editor.putString("trun5","正转");
+            editor.putString("trun6","正转");
+            editor.putString("trun7","正转");
+            editor.putString("trun8","正转");
+            editor.putString("trun9","正转");
+            editor.putString("trun10","正转");
+            editor.putString("trun11","正转");
+            editor.putString("trun12","正转");
 
             editor.commit();
 
