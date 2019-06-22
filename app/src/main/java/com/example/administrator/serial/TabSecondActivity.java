@@ -459,7 +459,11 @@ public class TabSecondActivity extends Activity
             public void onClick(View v) {
                 if (v.getId() == R.id.btn_set_mode)
                 {
-                    ShowModeDialog();
+                  //  ShowModeDialog();
+                    Intent it=new Intent(TabSecondActivity.this, mode_modify.class);
+                    startActivityForResult(it,REQUEST);
+
+
                 }
             }
         });

@@ -1,0 +1,896 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:baselineAligned="false">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_return"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/set_return"
+            android:text="" />
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:text="返回" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:background="@drawable/boder"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="模式"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="温度(℃)"/>
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="转速(rpm)"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="水泵"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="转动方向"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式一" />
+
+                <EditText
+                    android:id="@+id/temp1"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm1"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump1"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun1"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式二" />
+                <EditText
+                    android:id="@+id/temp2"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm2"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump2"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun2"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式三" />
+                <EditText
+                    android:id="@+id/temp3"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm3"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump3"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun3"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式四" />
+
+                <EditText
+                    android:id="@+id/temp4"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm4"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump4"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun4"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式五" />
+                <EditText
+                    android:id="@+id/temp5"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm5"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump5"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun5"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式六" />
+                <EditText
+                    android:id="@+id/temp6"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm6"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump6"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun6"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式七" />
+                <EditText
+                    android:id="@+id/temp7"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm7"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump7"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun7"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式八" />
+                <EditText
+                    android:id="@+id/temp8"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm8"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump8"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun8"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式九" />
+                <EditText
+                    android:id="@+id/temp9"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm9"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump9"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun9"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式十" />
+                <EditText
+                    android:id="@+id/temp10"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm10"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump10"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun10"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式十一" />
+                <EditText
+                    android:id="@+id/temp11"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm11"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump11"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun11"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/boder"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="25sp"
+                    android:text="模式十二" />
+                <EditText
+                    android:id="@+id/temp12"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:maxLength="4"
+                    android:cursorVisible="true"
+                    android:inputType="number"
+                    android:text="36.7" /> />
+
+                <EditText
+                    android:id="@+id/rpm12"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/textstye"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:digits="1234567890."
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:text="120.0" />
+                <CheckBox
+                    android:id="@+id/pump12"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+                <CheckBox
+                    android:id="@+id/trun12"
+                    android:layout_width="120dp"
+                    android:layout_height="55dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/switch_selector"
+                    android:button="@null"
+                    android:paddingLeft="60dp"
+                    android:text="启动"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

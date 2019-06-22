@@ -41,5 +41,6 @@
         <activity android:name=".Resetpwd" />
         <activity android:name=".Logout" />
         <activity android:name=".Register" />
+        <activity android:name=".mode_modify" />
     </application>
 </manifest>
